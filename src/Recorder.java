@@ -18,7 +18,7 @@ public class Recorder {
 			
 			try {
 				new File("tmp").mkdir();
-				ImageIO.write(image, "png", new File(String.format("tmp/screenshot%s.png", count)));
+				ImageIO.write(image, "png", new File(String.format("tmp/screenshot%06d.png", count)));
 				count ++;
 				
 			} catch (IOException e) {}
