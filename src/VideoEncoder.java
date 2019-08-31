@@ -2,14 +2,14 @@ import java.io.IOException;
 
 
 public class VideoEncoder {
-	public static String pathToFfempegExecutable = "ffmpeg/bin/ffmpeg.exe";
+	public static String pathToFfmpegExecutable = "ffmpeg/bin/ffmpeg";
 	public static int framerate = 30;
-	public static String filename = "video.mp4";
+	public static String filename = "time_lapse";
 	
 	public static void encodeVideo() {
 		
 		try {
-			String command = String.format("\"%s\" -c:v libx264 -pix_fmt yuv420p %s -framerate %s -i \"tmp/screenshot%%06d.png\" -y", pathToFfempegExecutable, filename, framerate);
+			String command = String.format("\"%s\" -c:v libx264 -pix_fmt yuv420p %s.mp4 -framerate %s -i \"tmp/screenshot%%06d.png\" -y", pathToFfmpegExecutable, filename, framerate);
 
 			Process pr = Runtime.getRuntime().exec(command);
 			
