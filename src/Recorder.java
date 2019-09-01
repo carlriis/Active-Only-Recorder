@@ -17,10 +17,9 @@ public class Recorder {
 			image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 			
 			try {
-				new File("tmp").mkdir();
-				ImageIO.write(image, "png", new File(String.format("tmp/screenshot%06d.png", count)));
+				ImageIO.write(image, "png", new File(String.format("tmp/screenshot%05d.png", count)));
 				count ++;
-				
+				System.out.println(count);
 			} catch (IOException e) {}
 		} catch (HeadlessException | AWTException e) {}
 	}
@@ -32,5 +31,9 @@ public class Recorder {
 	            f.delete();
 	        }
 	    }
+	}
+	
+	public static void mkdir() {
+		new File("tmp").mkdir();
 	}
 }

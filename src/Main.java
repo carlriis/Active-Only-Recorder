@@ -6,26 +6,15 @@ public class Main {
 	public static int activeLimit = 5;
 	public static boolean activeOn = true;
 	public static boolean keepTmp = false;
-	public static boolean record = false;
+	public static boolean record = true;
 	
 	public static void main(String[] args) {
-		
 		argumentParser(args);
-		
-		new Menu().menu();
+		Menu.menu();
 	
 	}
 	
 	public static void argumentParser(String[] args) {
-		// -a activeLimit
-		// -f framerate
-		// -n file name
-		// -ffmpeg ffempeg path
-		// -off active checker off (regular time lapse)
-		// -keeptmp keeps the pictures in the tmp folder
-		// -recordoff only encode video in tmp
-		
-		
 		for (int i = 0; i < args.length; i++) {
 			if (args[i].equals("-a")) {	
 				activeLimit = Integer.parseInt(args[i + 1]);
@@ -40,6 +29,7 @@ public class Main {
 			} else if (args[i].equals("-keeptmp")) {
 				keepTmp = true;
 			} else if (args[i].equals("-recordoff")) {
+				System.out.println("making off");
 				record = false;
 			}
 		}
@@ -52,15 +42,16 @@ public class Main {
 		Checker checker = new Checker();
 		Checker.startListening(checker);
 		
+		Recorder.mkdir();
 		Recorder.deleteTmp();
 		
 		while (true) {
-			if (checker.getLastActive() < activeLimit || !activeOn) {
+			if (checker.getLastActive() <= activeLimit || !activeOn) {
 
 				Recorder.TakeScreenshot();
 				
 				try {
-					TimeUnit.SECONDS.sleep((long) 0.5);
+					TimeUnit.SECONDS.sleep((long) 1);
 				} catch (InterruptedException e) {}
 			}
 		}
@@ -69,11 +60,11 @@ public class Main {
 
 class Menu {
 	
-	public void menu() {
+	public static void menu() {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-		if (!Main.record) {
-			System.out.println("Active only Recorder\n");
+		if (Main.record) {
+			System.out.println("Active Only Recorder\n");
 			System.out.println("Press enter");
 			System.out.print("Start recording:");
 			scanner.nextLine();
