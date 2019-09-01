@@ -2,7 +2,7 @@
 Active Only Recorder makes it easy to record action filled time lapses on your computer.Let’s say you want to make a programming time lapse, then there are going to be a lot of breaks where you aren't coding. Like when you read your own code or Stackoverflow to fix a bug. Or maybe you want to make a cup of coffee or sketch a concept on paper. This requires you to pause the time lapse, but Active only recorder only records when you are actively using your keyboard or mouse.
 It’s written in Java and uses a library called Jnativehook and Ffmpeg. It's not error handled very well.
 
->##Usage
+##Usage
 *-ffmpeg*   **Ffmpeg path** This is the path to an ffmpeg executable. You can skip this if you have the executable in the same folder as the .jar file.
 *-a*   **active time limit** This is when the recorder will pause the recording. The default is 5 seconds.
 *-f*   **frame rate** This is the frame rate of the output video. The default is 30.
