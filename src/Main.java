@@ -29,7 +29,6 @@ public class Main {
 			} else if (args[i].equals("-keeptmp")) {
 				keepTmp = true;
 			} else if (args[i].equals("-recordoff")) {
-				System.out.println("making off");
 				record = false;
 			}
 		}
@@ -47,7 +46,7 @@ public class Main {
 		
 		while (true) {
 			if (checker.getLastActive() <= activeLimit || !activeOn) {
-
+				
 				Recorder.TakeScreenshot();
 				
 				try {

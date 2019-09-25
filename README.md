@@ -20,8 +20,9 @@ It’s written in Java and uses a library called Jnativehook and Ffmpeg. It's no
 ## How to Run
 
 ```
-java -jar ActiveOnlyRecorder.jar
+sudo java -jar ActiveOnlyRecorder.jar
 ```
+**NOTE: It's important that you run the program with administrator permissions**
 
 ## License
 

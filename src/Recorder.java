@@ -19,7 +19,6 @@ public class Recorder {
 			try {
 				ImageIO.write(image, "png", new File(String.format("tmp/screenshot%05d.png", count)));
 				count ++;
-				System.out.println(count);
 			} catch (IOException e) {}
 		} catch (HeadlessException | AWTException e) {}
 	}
